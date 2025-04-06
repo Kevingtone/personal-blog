@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your blog description here.">
+  <meta name="keywords" content="tech, design, business, programming, tutorials">
+  <meta name="author" content="Your Name">
+  <title>Your Blog Title</title>
+  <link rel="stylesheet" href="./style.css">
+  
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-..."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  
+  
+  <!-- Link to the external CSS file -->
+</head>
+<body>
+
+  <!-- Dark Mode Toggle -->
+  <button id="dark-mode-toggle"></button>
+
+  <!-- Featured Posts -->
+  <section id="featured-posts">
+    <h2>personal blog</h2>
+    <div class="featured-posts-container">
+      <div class="post">
+        <img src="./assets/image/sft.png" alt="code pics">
+        <h3><a href="https://www.fuzu.com/kenya/job/software-engineer">software engineering jobs in kenya</a></h3>
+        <p>Remote software engineer jobs in Kenya paying up to USD $200k/year. Find US companies hiring full-time AI-First Software Engineers, Full-Stack Develop.</p>
+      </div>
+      <div class="post">
+        <img src="./assets/image/software.png" alt="Post 2">
+        <h3><a href="https://www.glassdoor.com/Explore/top-software-engineer-companies-nairobi_IO.4,21_IL.32,39_IM1085.htm">Top Companies in Nairobi Hiring for Software Engineer Jobs</a></h3>
+        <p>Browse the top companies hiring for Software Engineer jobs in Nairobi. Salaries, reviews, and more - all posted by employees working at ...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comment System (Disqus) -->
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = window.location.href;
+      this.page.identifier = document.title;
+    };
+    (function() {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://yourwebsite.disqus.com/embed.js';
+      (document.head || document.body).appendChild(s);
+    })();
+  </script>
+
+  <!-- Related Posts -->
+  <section id="related-posts">
+    <h3>Related Posts</h3>
+    <div class="related-posts-container">
+      <div class="post">
+        <h4><a href="https://ke.linkedin.com/jobs/software-engineer-jobs">316 software jobs in kenya</a></h4>
+      </div>
+      <div class="post">
+        <h4><a href="https://www.brightermonday.co.ke/jobs/software-data">software-data jobs in kenya</a></h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search Form -->
+  <form action="/search" method="get" id="search-form">
+    <input type="text" name="query" placeholder="Search posts..." required>
+    <button type="submit">Search</button>
+  </form>
+
+  <!-- Newsletter Signup -->
+  <section id="newsletter">
+    <h2>Subscribe to our Newsletter</h2>
+    <form action="/subscribe" method="POST">
+      <input type="email" name="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- Social Media Sharing -->
+  
+
+  <!-- Reading Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Personalized Recommendations -->
+  <section id="personalized-recommendations">
+    <h2>Recommended for You</h2>
+    <div class="recommendations-container">
+      <div class="post">
+        <h3><a href="https://www.myjobmag.co.ke/jobs-by-title/software-developer">top companies in nairobi hiring software engineers</a></h3>
+      </div>
+      <div class="post">
+        <h3><a href="https://www.corporatestaffing.co.ke/tag/software-developer-jobs-in-kenya">software developer jobs in kenya</a></h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Poll -->
+  <section id="poll">
+    <h3>Poll: What's your favorite topic?</h3>
+    <form action="/submit-poll" method="POST">
+      <label><input type="radio" name="topic" value="Tech"> Tech</label>
+      <label><input type="radio" name="topic" value="Design"> Design</label>
+      <label><input type="radio" name="topic" value="Business"> Business</label>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <!-- Author Bio -->
+  <section id="author-bio">
+    <img src="./assets/image/my image.jpg" alt="Author">
+    <h4>Japhet kevingtone</h4>
+    <p>Hi, I'm Kevingtone, a tech enthusiast and blogger. Follow me on my social media!</p>
+    <div class="social-links">
+      
+          <a href="
+      https://www.linkedin.com/in/japhet-kevingtone-2185762aa">LinkedIn</a>
+      <div class="social-icons">
+        
+      
+      
+        
+  
+      
+    </div>
+  </section>
+<script src="./script.js"></script>
+  <!-- Categories and Tags -->
+  <section id="categories">
+    <h3>Categories</h3>
+    <ul>
+      <li><a href="/category/tech">Tech</a></li>
+      <li><a href="/category/design">Design</a></li>
+      <li><a href="/category/business">Business</a></li>
+    </ul>
+  </section>
+
+  <section id="tags">
+    <h3>Tags</h3>
+    <ul>
+      <li><a href="/tag/javascript">JavaScript</a></li>
+      <li><a href="/tag/css">CSS</a></li>
+      <li><a href="/tag/python">Python</a></li>
+    </ul>
+  </section>
+
+
+
+  <script>
+    // Dark Mode Toggle
+    const toggleButton = document.getElementById('dark-mode-toggle');
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('dark-mode', document.body.classList.contains('dark-mode'));
+    });
+
+    // Check for saved dark mode preference
+    if (localStorage.getItem('dark-mode') === 'true') {
+      document.body.classList.add('dark-mode');
+    }
+
+    // Reading Progress Bar
+    window.addEventListener('scroll', function() {
+      var scrollPercent = (document.documentElement.scrollTop || document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100;
+      document.getElementById('progress-bar').style.width = scrollPercent + '%';
+    });
+
+    // Lazy Loading Images
+    const images = document.querySelectorAll('img.lazy-load');
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          img.classList.add('lazy-load-loaded');
+          observer.unobserve(img);
+        }
+      });
+    });
+    
+    images.forEach(image => observer.observe(image));
+  </script>
+
+</body>
+</html>
